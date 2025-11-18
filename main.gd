@@ -169,6 +169,7 @@ func _on_game_over_screen_to_menu() -> void:
 
 func _on_player_moving() -> void:
 	player_moving = true
+	#Start timer to wait to turn music down
 	$SlowDownTimer.start()
 
 
