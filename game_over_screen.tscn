@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhiyetlh52pin"]
+
+[ext_resource type="Script" uid="uid://cfds802cgiw3t" path="res://game_over_screen.gd" id="1_w3hxg"]
+[ext_resource type="FontFile" uid="uid://byvru7flwfdbh" path="res://Fonts/Arcane Nine.otf" id="2_l4tlu"]
+
+[node name="GameOverScreen" type="CanvasLayer"]
+script = ExtResource("1_w3hxg")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -104.0
+offset_right = 141.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_l4tlu")
+theme_override_font_sizes/font_size = 72
+text = "game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -56.0
+offset_right = 141.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_l4tlu")
+theme_override_font_sizes/font_size = 40
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 26.0
+offset_right = 104.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_l4tlu")
+theme_override_font_sizes/font_size = 20
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 80.0
+offset_right = 104.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_l4tlu")
+theme_override_font_sizes/font_size = 20
+text = "Menu"
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
