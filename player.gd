@@ -2,6 +2,7 @@ extends RigidBody2D
 
 signal hit
 signal moving
+signal off_screen
 
 var slow_down_rate = 150
 var brake_rate = 300
@@ -65,3 +66,7 @@ func set_pos(posit:Vector2):
 	position = posit
 	reset_pos = posit
 	reset = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	off_screen.emit()

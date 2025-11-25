@@ -9,17 +9,32 @@ var score = 0
 var lives = 3
 var recovering = false
 var player_moving = false
+var prev_size = DisplayServer.window_get_size()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Player.hide()
-	$GameHud.hide()
-	$GameOverScreen.hide()
-	$MenuMusic.play()
-
+	DisplayServer.window_set_min_size(Vector2i(640,480))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var screen_size = DisplayServer.window_get_size()
+	
+	if prev_size.x != screen_size.x || prev_size.y != screen_size.y:
+		$PlayerBounds/CollisionPolygon2D.polygon[0] = Vector2(0,0)
+		$PlayerBounds/CollisionPolygon2D.polygon[1] = Vector2(screen_size.x,0)
+		$PlayerBounds/CollisionPolygon2D.polygon[2] = Vector2(screen_size.x,screen_size.y)
+		$PlayerBounds/CollisionPolygon2D.polygon[3] = Vector2(0,screen_size.y)
+		
+		var new_curve = Curve2D.new()
+		new_curve.add_point(Vector2(0,0))
+		new_curve.add_point(Vector2(screen_size.x, 0))
+		new_curve.add_point(Vector2(screen_size.x, screen_size.y))
+		new_curve.add_point(Vector2(0, screen_size.y))
+		new_curve.add_point(Vector2(0, 0))
+		$AstroidPath.curve = new_curve
+		
+	prev_size = screen_size
+	
 	#Check for shooting input
 	if Input.is_action_pressed("shoot") && !reloading && $Player.is_visible_in_tree():
 		var bullet = bullet_scene.instantiate()
@@ -31,7 +46,7 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(0.3).timeout
 		reloading = false
 		
-	if player_moving && $PlayerMusic.volume_db < 4.0:
+	if player_moving && $PlayerMusic.volume_db < 0.0:
 		$PlayerMusic.volume_db += 24 * delta
 	elif !player_moving && $PlayerMusic.volume_db > -16.0:
 		$PlayerMusic.volume_db -= 4 * delta
@@ -131,14 +146,16 @@ func _on_start_game() -> void:
 	$MenuMusic.stop()
 	$GameMusic.play()
 	$PlayerMusic.play()
-	$Player.set_pos($StartPosition.position)
+	var screen_size = DisplayServer.window_get_size()
+	$Player.set_pos(Vector2(screen_size.x/2,screen_size.y/2))
 	$Player.show()
 	$GameHud.show()
+	get_tree().call_group("asteroids", "queue_free")
 	$AsteroidTimer.start()
 
 
 func _on_player_hit() -> void:
-	if !recovering:
+	if !recovering && $Player.visible:
 		minus_life()
 		
 		if lives == 0:
@@ -157,7 +174,6 @@ func game_over() -> void:
 	$PlayerMusic.stop()
 	$GameOver.play()
 	$AsteroidTimer.stop()
-	get_tree().call_group("asteroids", "queue_free")
 	$GameOverScreen.show()
 	$GameOverScreen/Subtitle.text = "SCORE: " + str(score)
 
@@ -175,3 +191,8 @@ func _on_player_moving() -> void:
 
 func _on_slow_down_timer_timeout() -> void:
 	player_moving = false
+
+
+func _on_player_off_screen() -> void:
+	var screen_size = DisplayServer.window_get_size()
+	$Player.set_pos(Vector2(screen_size.x/2,screen_size.y/2))

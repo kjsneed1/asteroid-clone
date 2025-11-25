@@ -40,20 +40,24 @@ text = "0"
 
 [node name="Lives" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 1152.0
-offset_right = 1304.0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_right = 24.0
 offset_bottom = 64.0
+size_flags_horizontal = 10
+size_flags_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="LivesLabel" type="Label" parent="Lives"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 16.0
-offset_top = -16.0
-offset_right = 98.0
-offset_bottom = 19.0
+anchors_preset = -1
+anchor_left = 0.84200007
+anchor_right = 0.84200007
+offset_left = -111.98401
+offset_top = 16.0
+offset_right = -29.984009
+offset_bottom = 51.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_q4g6c")
 theme_override_font_sizes/font_size = 30
@@ -61,13 +65,13 @@ text = "LIVES:"
 
 [node name="LivesNumber" type="Label" parent="Lives"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 98.0
-offset_top = -16.0
-offset_right = 180.0
-offset_bottom = 19.0
+anchors_preset = -1
+anchor_left = 0.84200007
+anchor_right = 0.84200007
+offset_left = -29.984009
+offset_top = 16.0
+offset_right = 52.01599
+offset_bottom = 51.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_q4g6c")
 theme_override_font_sizes/font_size = 30
