@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhiyetlh52pin"]
+[gd_scene load_steps=4 format=3 uid="uid://bhiyetlh52pin"]
 
 [ext_resource type="Script" uid="uid://cfds802cgiw3t" path="res://game_over_screen.gd" id="1_w3hxg"]
 [ext_resource type="FontFile" uid="uid://byvru7flwfdbh" path="res://Fonts/Arcane Nine.otf" id="2_l4tlu"]
+[ext_resource type="FontFile" uid="uid://bgl36lnl5f1c3" path="res://Fonts/MADE TOMMY Regular_PERSONAL USE.otf" id="3_l4tlu"]
 
 [node name="GameOverScreen" type="CanvasLayer"]
 script = ExtResource("1_w3hxg")
@@ -36,9 +37,9 @@ offset_right = 141.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_l4tlu")
+theme_override_fonts/font = ExtResource("3_l4tlu")
 theme_override_font_sizes/font_size = 40
-text = "Score: 0"
+text = "SCORE: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -54,9 +55,9 @@ offset_right = 104.0
 offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_l4tlu")
+theme_override_fonts/font = ExtResource("3_l4tlu")
 theme_override_font_sizes/font_size = 20
-text = "Retry"
+text = "RETRY"
 
 [node name="MenuButton" type="Button" parent="."]
 anchors_preset = 8
@@ -70,9 +71,9 @@ offset_right = 104.0
 offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_l4tlu")
+theme_override_fonts/font = ExtResource("3_l4tlu")
 theme_override_font_sizes/font_size = 20
-text = "Menu"
+text = "MENU"
 
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

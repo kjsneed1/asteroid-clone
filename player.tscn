@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy8dul25wtxai"]
+[gd_scene load_steps=7 format=3 uid="uid://dy8dul25wtxai"]
 
 [ext_resource type="Texture2D" uid="uid://dilx3ytkx8opm" path="res://Sprites/Player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://btgoym0bo3hex" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://dlxiwles1g38n" path="res://Sprites/Player stationary.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://88uivx3g1lyf" path="res://Sprites/Player hurt.png" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://cwinxyfa55ln4" path="res://Sprites/Light circle.webp" id="4_hqtel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
@@ -13,6 +14,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}],
+"loop": true,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -38,6 +47,7 @@ polygon = PackedVector2Array(0, -19, 14, 12, 0, 18, -14, 11)
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_hqtel")
+animation = &"hurt"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 light_mask = 7

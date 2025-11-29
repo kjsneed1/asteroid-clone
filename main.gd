@@ -46,9 +46,9 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(0.3).timeout
 		reloading = false
 		
-	if player_moving && $PlayerMusic.volume_db < 0.0:
+	if player_moving && $PlayerMusic.volume_db < -4.0:
 		$PlayerMusic.volume_db += 24 * delta
-	elif !player_moving && $PlayerMusic.volume_db > -16.0:
+	elif !player_moving && $PlayerMusic.volume_db > -20.0:
 		$PlayerMusic.volume_db -= 4 * delta
 
 #Functions to set score in state and display
@@ -164,7 +164,11 @@ func _on_player_hit() -> void:
 			$Crash.play()
 			
 		recovering = true
-		await get_tree().create_timer(1.0).timeout
+		$Player.hurt = true
+		$Player/PlayerAnimation.animation = "hurt"
+		await get_tree().create_timer(0.1).timeout
+		$Player.hurt = false
+		await get_tree().create_timer(0.9).timeout
 		recovering = false
 
 func game_over() -> void:
@@ -174,7 +178,10 @@ func game_over() -> void:
 	$PlayerMusic.stop()
 	$GameOver.play()
 	$AsteroidTimer.stop()
-	$GameOverScreen.show()
+	if(score > $HighScores.get_min()):
+		$HighScores/NewHighScoreScreen.show()
+	else:
+		$GameOverScreen.show()
 	$GameOverScreen/Subtitle.text = "SCORE: " + str(score)
 
 
@@ -196,3 +203,19 @@ func _on_slow_down_timer_timeout() -> void:
 func _on_player_off_screen() -> void:
 	var screen_size = DisplayServer.window_get_size()
 	$Player.set_pos(Vector2(screen_size.x/2,screen_size.y/2))
+	
+
+
+func _on_start_screen_high_scores_screen() -> void:
+	$HighScores.set_high_score_string()
+	$HighScores/HighScoreScreen.show()
+
+
+func _on_high_score_screen_high_score_back() -> void:
+	$StartScreen.show()
+
+
+func _on_high_scores_high_score_submit(player_name: String) -> void:
+	$HighScores.add_high_score(player_name, score)
+	$HighScores/NewHighScoreScreen.hide()
+	$GameOverScreen.show()

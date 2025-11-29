@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wnxcbkeq7gmy"]
+[gd_scene load_steps=3 format=3 uid="uid://wnxcbkeq7gmy"]
 
 [ext_resource type="FontFile" uid="uid://byvru7flwfdbh" path="res://Fonts/Arcane Nine.otf" id="1_q4g6c"]
+[ext_resource type="FontFile" uid="uid://bgl36lnl5f1c3" path="res://Fonts/MADE TOMMY Regular_PERSONAL USE.otf" id="2_og655"]
 
 [node name="GameHud" type="CanvasLayer"]
 
@@ -34,12 +35,13 @@ offset_top = -16.0
 offset_right = 186.0
 offset_bottom = 19.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_q4g6c")
+theme_override_fonts/font = ExtResource("2_og655")
 theme_override_font_sizes/font_size = 30
 text = "0"
 
 [node name="Lives" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -128.0
@@ -73,6 +75,6 @@ offset_top = 16.0
 offset_right = 52.01599
 offset_bottom = 51.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_q4g6c")
+theme_override_fonts/font = ExtResource("2_og655")
 theme_override_font_sizes/font_size = 30
 text = "3"

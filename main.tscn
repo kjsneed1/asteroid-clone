@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://br5j3kq1smj6l"]
+[gd_scene load_steps=19 format=3 uid="uid://br5j3kq1smj6l"]
 
 [ext_resource type="Script" uid="uid://cnyqa83iddkda" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dy8dul25wtxai" path="res://player.tscn" id="1_ig7tw"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://wnxcbkeq7gmy" path="res://game_hud.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bhiyetlh52pin" path="res://game_over_screen.tscn" id="9_kek77"]
 [ext_resource type="AudioStream" uid="uid://c0ym8g230c6vt" path="res://Music/MenuMusic.mp3" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://gka24ak7goix" path="res://high_scores.tscn" id="10_yaehf"]
 [ext_resource type="AudioStream" uid="uid://c74ss5vbloyq4" path="res://Music/GameMusic.mp3" id="11_efxa6"]
 [ext_resource type="AudioStream" uid="uid://c47vswxghkeqp" path="res://Music/GameOver.mp3" id="12_dg77c"]
 [ext_resource type="AudioStream" uid="uid://i80cyunveil0" path="res://Music/PlayerMusic.mp3" id="12_vivmo"]
@@ -64,6 +65,8 @@ visible = false
 [node name="GameOverScreen" parent="." instance=ExtResource("9_kek77")]
 visible = false
 
+[node name="HighScores" parent="." instance=ExtResource("10_yaehf")]
+
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(640, 386)
 
@@ -76,7 +79,7 @@ stream = ExtResource("11_efxa6")
 
 [node name="PlayerMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_vivmo")
-volume_db = -16.0
+volume_db = -20.0
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_dg77c")
@@ -112,6 +115,9 @@ polygon = PackedVector2Array(0, 0, 1280, 0, 1280, 720, 0, 720)
 [connection signal="off_screen" from="Player" to="." method="_on_player_off_screen"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
 [connection signal="timeout" from="SlowDownTimer" to="." method="_on_slow_down_timer_timeout"]
+[connection signal="high_scores_screen" from="StartScreen" to="." method="_on_start_screen_high_scores_screen"]
 [connection signal="start_game" from="StartScreen" to="." method="_on_start_game"]
 [connection signal="start_game" from="GameOverScreen" to="." method="_on_start_game"]
 [connection signal="to_menu" from="GameOverScreen" to="." method="_on_game_over_screen_to_menu"]
+[connection signal="high_score_back" from="HighScores" to="." method="_on_high_score_screen_high_score_back"]
+[connection signal="high_score_submit" from="HighScores" to="." method="_on_high_scores_high_score_submit"]

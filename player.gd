@@ -9,6 +9,7 @@ var brake_rate = 300
 var test_val = 334
 var reset = false
 var reset_pos
+var hurt = false
 
 func _ready() -> void:
 	#Set monitor values
@@ -19,7 +20,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	
 	#Set default player sprite
-	$PlayerAnimation.animation = "default"
+	if !hurt:
+		$PlayerAnimation.animation = "default"
 	
 	#Set slow down rates
 	linear_damp = 1.2
@@ -40,7 +42,8 @@ func _process(_delta: float) -> void:
 	#Look for player input to move
 	if Input.is_action_pressed("move"):
 		moving.emit()
-		$PlayerAnimation.animation = "moving"
+		if !hurt:
+			$PlayerAnimation.animation = "moving"
 		linear_velocity = Vector2(0.0,-200.0).rotated(rotation)
 		if !Input.is_action_pressed("turn_left") && !Input.is_action_pressed("turn_right"):
 			angular_velocity = 0
