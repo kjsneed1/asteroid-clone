@@ -1,6 +1,7 @@
 extends CanvasLayer
 signal start_game
 signal high_scores_screen
+signal options_screen
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,4 +25,9 @@ func _on_start_button_pressed() -> void:
 
 func _on_high_scores_button_pressed() -> void:
 	high_scores_screen.emit()
+	hide()
+
+
+func _on_options_button_pressed() -> void:
+	options_screen.emit()
 	hide()

@@ -1,0 +1,170 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctbakmjb1ba34"]
+
+[ext_resource type="FontFile" uid="uid://byvru7flwfdbh" path="res://Fonts/Arcane Nine.otf" id="1_ts4v6"]
+[ext_resource type="Script" uid="uid://dmdhaoenssfx8" path="res://options_screen.gd" id="1_ypl1d"]
+[ext_resource type="FontFile" uid="uid://bgl36lnl5f1c3" path="res://Fonts/MADE TOMMY Regular_PERSONAL USE.otf" id="2_666cw"]
+
+[node name="OptionsScreen" type="CanvasLayer"]
+script = ExtResource("1_ypl1d")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -256.0
+offset_right = 141.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ts4v6")
+theme_override_font_sizes/font_size = 40
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ApplyButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = 88.0
+offset_right = -8.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+theme_override_font_sizes/font_size = 20
+text = "APPLY"
+
+[node name="BackButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 176.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+theme_override_font_sizes/font_size = 20
+text = "BACK"
+
+[node name="FullscreenLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -176.0
+offset_right = -8.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+text = "Fullscreen"
+horizontal_alignment = 2
+
+[node name="FullscreenCheck" type="CheckButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -184.0
+offset_right = 44.0
+offset_bottom = -147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+text = "
+"
+
+[node name="SFXLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -120.0
+offset_right = -8.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+text = "SFX Volume"
+horizontal_alignment = 2
+
+[node name="SFXSlider" type="HSlider" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -120.0
+offset_right = 112.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 80.0
+
+[node name="MusicLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -96.0
+offset_right = -8.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+text = "Music Volume"
+horizontal_alignment = 2
+
+[node name="MusicSlider" type="HSlider" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -97.0
+offset_right = 112.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 80.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 48.0
+offset_right = 89.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+theme_override_font_sizes/font_size = 12
+text = "Reset High Scores on apply"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]

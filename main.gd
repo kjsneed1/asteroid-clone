@@ -219,3 +219,11 @@ func _on_high_scores_high_score_submit(player_name: String) -> void:
 	$HighScores.add_high_score(player_name, score)
 	$HighScores/NewHighScoreScreen.hide()
 	$GameOverScreen.show()
+
+
+func _on_start_screen_options_screen() -> void:
+	$OptionsScreen.show()
+
+
+func _on_options_screen_back() -> void:
+	$StartScreen.show()

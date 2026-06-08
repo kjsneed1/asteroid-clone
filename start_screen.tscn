@@ -13,9 +13,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -152.0
+offset_left = -160.0
 offset_top = -128.0
-offset_right = 154.0
+offset_right = 160.0
 offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -31,9 +31,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.0
+offset_left = -144.0
 offset_top = -80.0
-offset_right = 141.0
+offset_right = 144.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -49,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -8.0
-offset_right = 104.0
-offset_bottom = 26.0
+offset_left = -216.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_afy8x")
@@ -65,15 +65,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = 88.0
-offset_right = 104.0
-offset_bottom = 122.0
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 216.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_afy8x")
 theme_override_font_sizes/font_size = 20
 text = "QUIT"
+
+[node name="OptionsButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 56.0
+offset_right = -8.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_afy8x")
+theme_override_font_sizes/font_size = 20
+text = "OPTIONS"
 
 [node name="HighScoresButton" type="Button" parent="."]
 anchors_preset = 8
@@ -81,10 +97,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = 40.0
-offset_right = 104.0
-offset_bottom = 74.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_afy8x")
@@ -93,4 +109,5 @@ text = "HIGH SCORES"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="HighScoresButton" to="." method="_on_high_scores_button_pressed"]
