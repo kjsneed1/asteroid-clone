@@ -231,3 +231,22 @@ func _on_options_screen_back() -> void:
 
 func _on_options_screen_reset_scores() -> void:
 	$HighScores.write_high_scores($HighScores.default_scores)
+
+
+func _on_options_screen_set_sound_volume(volume: Variant) -> void:
+		AudioServer.set_bus_volume_db(1, -20 + volume)
+		
+		if volume == 0:
+			AudioServer.set_bus_mute(1, true)
+		else:
+			AudioServer.set_bus_mute(1, false)
+		
+
+
+func _on_options_screen_set_music_volume(volume: Variant) -> void:
+	AudioServer.set_bus_volume_db(2, -20 + volume)
+		
+	if volume == 0:
+		AudioServer.set_bus_mute(2, true)
+	else:
+		AudioServer.set_bus_mute(2, false)

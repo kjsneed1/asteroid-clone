@@ -1,9 +1,14 @@
 extends CanvasLayer
 signal back
 signal resetScores
+signal setMusicVolume(volume)
+signal setSoundVolume(volume)
+
 
 var default_settings = {
-	"fullscreen": true
+	"fullscreen": false,
+	"music_volume": 18,
+	"sound_volume": 18
 }
 
 var reset_scores = false
@@ -18,10 +23,15 @@ func _ready() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		
+	setSoundVolume.emit(settings_obj.sound_volume)
+	setMusicVolume.emit(settings_obj.music_volume)
 
 func _on_visibility_changed() -> void:
 	if visible == true:
 		$FullscreenCheck.button_pressed = settings_obj.fullscreen
+		$SFXSlider.value = settings_obj.sound_volume
+		$MusicSlider.value = settings_obj.music_volume
 		
 		$ResetScore.button_pressed = false
 
@@ -52,6 +62,9 @@ func save_settings():
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		
+	setSoundVolume.emit(settings_obj.sound_volume)
+	setMusicVolume.emit(settings_obj.music_volume)
+	
 	if reset_scores:
 		resetScores.emit()
 
@@ -75,3 +88,10 @@ func _on_apply_button_pressed() -> void:
 
 func _on_reset_score_toggled(toggled_on: bool) -> void:
 	reset_scores = toggled_on
+
+func _on_music_slider_value_changed(value: float) -> void:
+	settings_obj.music_volume = value
+
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	settings_obj.sound_volume = value
