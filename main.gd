@@ -227,3 +227,7 @@ func _on_start_screen_options_screen() -> void:
 
 func _on_options_screen_back() -> void:
 	$StartScreen.show()
+
+
+func _on_options_screen_reset_scores() -> void:
+	$HighScores.write_high_scores($HighScores.default_scores)

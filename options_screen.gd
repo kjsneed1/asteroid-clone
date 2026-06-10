@@ -1,9 +1,12 @@
 extends CanvasLayer
 signal back
+signal resetScores
 
 var default_settings = {
 	"fullscreen": true
 }
+
+var reset_scores = false
 
 var settings_obj = {}
 
@@ -19,6 +22,8 @@ func _ready() -> void:
 func _on_visibility_changed() -> void:
 	if visible == true:
 		$FullscreenCheck.button_pressed = settings_obj.fullscreen
+		
+		$ResetScore.button_pressed = false
 
 
 func get_settings():
@@ -46,6 +51,9 @@ func save_settings():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		
+	if reset_scores:
+		resetScores.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -63,3 +71,7 @@ func _on_apply_button_pressed() -> void:
 	save_settings()
 	back.emit()
 	hide()
+
+
+func _on_reset_score_toggled(toggled_on: bool) -> void:
+	reset_scores = toggled_on
