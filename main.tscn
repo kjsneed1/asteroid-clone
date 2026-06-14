@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://br5j3kq1smj6l"]
+[gd_scene format=3 uid="uid://br5j3kq1smj6l"]
 
 [ext_resource type="Script" uid="uid://cnyqa83iddkda" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dy8dul25wtxai" path="res://player.tscn" id="1_ig7tw"]
@@ -25,14 +25,14 @@ _data = {
 }
 point_count = 5
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=599713393]
 script = ExtResource("1_0xm2m")
 bullet_scene = ExtResource("2_h2yge")
 big_asteroid_scene = ExtResource("4_1bvp3")
 medium_asteroid_scene = ExtResource("4_lquwl")
 small_asteroid_scene = ExtResource("5_7mycd")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2018878429]
 light_mask = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,83 +42,83 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0.033853274, 0.03385328, 0.033853255, 1)
+color = Color(0.021434633, 0.021434637, 0.021434618, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." unique_id=476880030 instance=ExtResource("1_ig7tw")]
 visible = false
 position = Vector2(32, 72)
 
-[node name="AstroidPath" type="Path2D" parent="."]
+[node name="AstroidPath" type="Path2D" parent="." unique_id=1446895373]
 curve = SubResource("Curve2D_h2yge")
 
-[node name="AsteroidPathLocation" type="PathFollow2D" parent="AstroidPath"]
+[node name="AsteroidPathLocation" type="PathFollow2D" parent="AstroidPath" unique_id=316158388]
 
-[node name="AsteroidTimer" type="Timer" parent="."]
+[node name="AsteroidTimer" type="Timer" parent="." unique_id=408213460]
 wait_time = 2.0
 
-[node name="SlowDownTimer" type="Timer" parent="."]
+[node name="SlowDownTimer" type="Timer" parent="." unique_id=1105683266]
 
-[node name="StartScreen" parent="." instance=ExtResource("7_272bh")]
+[node name="StartScreen" parent="." unique_id=855984873 instance=ExtResource("7_272bh")]
 
-[node name="GameHud" parent="." instance=ExtResource("8_5vw27")]
+[node name="GameHud" parent="." unique_id=859878601 instance=ExtResource("8_5vw27")]
 visible = false
 
-[node name="GameOverScreen" parent="." instance=ExtResource("9_kek77")]
+[node name="GameOverScreen" parent="." unique_id=290107575 instance=ExtResource("9_kek77")]
 visible = false
 
-[node name="HighScores" parent="." instance=ExtResource("10_yaehf")]
+[node name="HighScores" parent="." unique_id=1331300010 instance=ExtResource("10_yaehf")]
 
-[node name="OptionsScreen" parent="." instance=ExtResource("11_074og")]
+[node name="OptionsScreen" parent="." unique_id=76772635 instance=ExtResource("11_074og")]
 visible = false
 
-[node name="StartPosition" type="Marker2D" parent="."]
+[node name="StartPosition" type="Marker2D" parent="." unique_id=528703930]
 position = Vector2(640, 386)
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=2143193765]
 stream = ExtResource("10_4c57u")
 autoplay = true
 bus = &"Music"
 
-[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+[node name="GameMusic" type="AudioStreamPlayer" parent="." unique_id=1687953936]
 stream = ExtResource("11_efxa6")
 bus = &"Music"
 
-[node name="PlayerMusic" type="AudioStreamPlayer" parent="."]
+[node name="PlayerMusic" type="AudioStreamPlayer" parent="." unique_id=1667725291]
 stream = ExtResource("12_vivmo")
 volume_db = -20.0
 bus = &"Music"
 
-[node name="GameOver" type="AudioStreamPlayer" parent="."]
+[node name="GameOver" type="AudioStreamPlayer" parent="." unique_id=1288350873]
 stream = ExtResource("12_dg77c")
 bus = &"Music"
 
-[node name="AsteroidHit" type="AudioStreamPlayer" parent="."]
+[node name="AsteroidHit" type="AudioStreamPlayer" parent="." unique_id=1746693346]
 stream = ExtResource("13_ycdy4")
 max_polyphony = 10
 bus = &"Sounds"
 
-[node name="Crash" type="AudioStreamPlayer" parent="."]
+[node name="Crash" type="AudioStreamPlayer" parent="." unique_id=2106606079]
 stream = ExtResource("14_w48qg")
 max_polyphony = 2
 bus = &"Sounds"
 parameters/looping = false
 
-[node name="Shoot" type="AudioStreamPlayer" parent="."]
+[node name="Shoot" type="AudioStreamPlayer" parent="." unique_id=160885168]
 stream = ExtResource("16_2cqfq")
 volume_db = 4.0
 max_polyphony = 5
 bus = &"Sounds"
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=353850606]
 color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 
-[node name="PlayerBounds" type="RigidBody2D" parent="."]
+[node name="PlayerBounds" type="RigidBody2D" parent="." unique_id=22145697]
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
 freeze = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerBounds"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerBounds" unique_id=1414630061]
 build_mode = 1
 polygon = PackedVector2Array(0, 0, 1280, 0, 1280, 720, 0, 720)
 

@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	prev_size = screen_size
 	
 	#Check for shooting input
-	if Input.is_action_pressed("shoot") && !reloading && $Player.is_visible_in_tree():
+	if (Input.is_action_pressed("shoot") || Input.is_action_pressed("controller_shoot")) && !reloading && $Player.is_visible_in_tree():
 		var bullet = bullet_scene.instantiate()
 		bullet.position = $Player.position
 		bullet.rotation = $Player.rotation

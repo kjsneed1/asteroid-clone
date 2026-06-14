@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy8dul25wtxai"]
+[gd_scene format=3 uid="uid://dy8dul25wtxai"]
 
 [ext_resource type="Texture2D" uid="uid://dilx3ytkx8opm" path="res://Sprites/Player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://btgoym0bo3hex" path="res://player.gd" id="1_onrkg"]
@@ -33,7 +33,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" unique_id=1947174077]
 collision_layer = 3
 collision_mask = 3
 mass = 5.0
@@ -41,21 +41,21 @@ gravity_scale = 0.0
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1150217721]
 polygon = PackedVector2Array(0, -19, 14, 12, 0, 18, -14, 11)
 
-[node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=1833243805]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_hqtel")
 animation = &"hurt"
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=327801847]
 light_mask = 7
 visibility_layer = 7
 texture = ExtResource("4_hqtel")
 texture_scale = 1.2
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1384760194]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
