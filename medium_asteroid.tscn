@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5jn7jfr51rxp"]
+[gd_scene format=3 uid="uid://b5jn7jfr51rxp"]
 
 [ext_resource type="Script" uid="uid://btlmvc7qnu4ih" path="res://medium_asteroid.gd" id="1_8siyg"]
 [ext_resource type="Texture2D" uid="uid://cexmqnjorpbn7" path="res://Sprites/Medium Asteriod 1.png" id="2_8siyg"]
@@ -53,22 +53,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MediumAsteroid" type="RigidBody2D"]
-collision_layer = 5
-collision_mask = 5
+[node name="MediumAsteroid" type="RigidBody2D" unique_id=1556610528]
+collision_mask = 4
+mass = 0.001
 gravity_scale = 0.0
+linear_damp_mode = 1
 script = ExtResource("1_8siyg")
 
-[node name="MediumAsteroidCollison" type="CollisionShape2D" parent="." groups=["asteroids"]]
+[node name="MediumAsteroidCollison" type="CollisionShape2D" parent="." unique_id=1711807635 groups=["asteroids"]]
 shape = SubResource("CircleShape2D_crhyp")
 
-[node name="MediumAsteroidSprites" type="AnimatedSprite2D" parent="."]
+[node name="MediumAsteroidSprites" type="AnimatedSprite2D" parent="." unique_id=2121856556]
 position = Vector2(0.799997, -0.80000156)
 scale = Vector2(0.30624998, 0.30624998)
 sprite_frames = SubResource("SpriteFrames_lvpsd")
 animation = &"5"
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=266794773]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2301auif72gf"]
+[gd_scene format=3 uid="uid://b2301auif72gf"]
 
 [ext_resource type="Texture2D" uid="uid://dxfuuw3up7vdp" path="res://Sprites/Big Asteroid 2.png" id="1_ib8wo"]
 [ext_resource type="Script" uid="uid://qjtjh3jtgas0" path="res://big_asteroid.gd" id="1_rgbiv"]
@@ -53,22 +53,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BigAsteroid" type="RigidBody2D" groups=["asteroids"]]
-collision_layer = 5
-collision_mask = 5
+[node name="BigAsteroid" type="RigidBody2D" unique_id=1164190400 groups=["asteroids"]]
+collision_mask = 4
+mass = 0.001
 gravity_scale = 0.0
+linear_damp_mode = 1
 script = ExtResource("1_rgbiv")
 
-[node name="BigAsteroidCollison" type="CollisionShape2D" parent="."]
+[node name="BigAsteroidCollison" type="CollisionShape2D" parent="." unique_id=20638695]
 shape = SubResource("CircleShape2D_crhyp")
 
-[node name="BigAsteroidSprites" type="AnimatedSprite2D" parent="."]
+[node name="BigAsteroidSprites" type="AnimatedSprite2D" parent="." unique_id=1291985503]
 position = Vector2(0.799997, -0.80000156)
 scale = Vector2(0.30624998, 0.30624998)
 sprite_frames = SubResource("SpriteFrames_lvpsd")
 animation = &"5"
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=550155321]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

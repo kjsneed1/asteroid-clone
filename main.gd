@@ -11,6 +11,10 @@ var recovering = false
 var player_moving = false
 var prev_size = DisplayServer.window_get_size()
 
+#Starter variables for asteroid velocity
+var asteroid_min = 40.0
+var asteroid_max = 100.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	DisplayServer.window_set_min_size(Vector2i(640,480))
@@ -97,11 +101,19 @@ func _on_asteroid_timer_timeout() -> void:
 	direction += randf_range(-PI/3, PI/3)
 	asteroid.rotation = direction
 	
-	var velocity = Vector2(randf_range(40.0, 100.0), 0.0)
+	var velocity = Vector2(randf_range(asteroid_min, asteroid_max), 0.0)
 	asteroid.linear_velocity = velocity.rotated(direction)
 	
 	#Spawn asteroid in
 	add_child(asteroid)
+	
+	#Speed up next asteroid
+	if asteroid_min < 120:
+		asteroid_min += 0.5
+	if asteroid_max < 300:
+		asteroid_max += 1
+	if $AsteroidTimer.wait_time > 0.3:
+		$AsteroidTimer.wait_time -= 0.005
 
 func _on_big_asteroid_shot(parent) -> void:
 	$AsteroidHit.play()
@@ -143,13 +155,21 @@ func _on_small_asteroid_shot(_parent) -> void:
 func _on_start_game() -> void:
 	set_score(0)
 	set_lives(3)
+	
 	$MenuMusic.stop()
 	$GameMusic.play()
 	$PlayerMusic.play()
+	
 	var screen_size = DisplayServer.window_get_size()
+	
 	$Player.set_pos(Vector2(screen_size.x/2,screen_size.y/2))
 	$Player.show()
 	$GameHud.show()
+	
+	asteroid_min = 40.0
+	asteroid_max = 100.0
+	$AsteroidTimer.wait_time = 1.5
+	
 	get_tree().call_group("asteroids", "queue_free")
 	$AsteroidTimer.start()
 
