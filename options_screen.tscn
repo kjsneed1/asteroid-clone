@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctbakmjb1ba34"]
+[gd_scene format=3 uid="uid://ctbakmjb1ba34"]
 
 [ext_resource type="FontFile" uid="uid://byvru7flwfdbh" path="res://Fonts/Arcane Nine.otf" id="1_ts4v6"]
 [ext_resource type="Script" uid="uid://dmdhaoenssfx8" path="res://options_screen.gd" id="1_ypl1d"]
 [ext_resource type="FontFile" uid="uid://bgl36lnl5f1c3" path="res://Fonts/MADE TOMMY Regular_PERSONAL USE.otf" id="2_666cw"]
 
-[node name="OptionsScreen" type="CanvasLayer"]
+[node name="OptionsScreen" type="CanvasLayer" unique_id=1580283288]
 script = ExtResource("1_ypl1d")
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=684662938]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,39 +25,7 @@ text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ApplyButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -176.0
-offset_top = 88.0
-offset_right = -8.0
-offset_bottom = 122.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_666cw")
-theme_override_font_sizes/font_size = 20
-text = "APPLY"
-
-[node name="BackButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = 88.0
-offset_right = 176.0
-offset_bottom = 122.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_666cw")
-theme_override_font_sizes/font_size = 20
-text = "BACK"
-
-[node name="FullscreenLabel" type="Label" parent="."]
+[node name="FullscreenLabel" type="Label" parent="." unique_id=2007858370]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -73,7 +41,7 @@ theme_override_fonts/font = ExtResource("2_666cw")
 text = "Fullscreen"
 horizontal_alignment = 2
 
-[node name="FullscreenCheck" type="CheckButton" parent="."]
+[node name="FullscreenCheck" type="CheckButton" parent="." unique_id=1774786691]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -81,14 +49,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_top = -184.0
 offset_right = 44.0
-offset_bottom = -147.0
+offset_bottom = -144.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_666cw")
 text = "
 "
 
-[node name="SFXLabel" type="Label" parent="."]
+[node name="SFXLabel" type="Label" parent="." unique_id=572012654]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -104,7 +72,7 @@ theme_override_fonts/font = ExtResource("2_666cw")
 text = "SFX Volume"
 horizontal_alignment = 2
 
-[node name="SFXSlider" type="HSlider" parent="."]
+[node name="SFXSlider" type="HSlider" parent="." unique_id=550143629]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -119,7 +87,7 @@ grow_vertical = 2
 max_value = 20.0
 value = 20.0
 
-[node name="MusicLabel" type="Label" parent="."]
+[node name="MusicLabel" type="Label" parent="." unique_id=1054266963]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -135,7 +103,7 @@ theme_override_fonts/font = ExtResource("2_666cw")
 text = "Music Volume"
 horizontal_alignment = 2
 
-[node name="MusicSlider" type="HSlider" parent="."]
+[node name="MusicSlider" type="HSlider" parent="." unique_id=1210049356]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -150,7 +118,38 @@ grow_vertical = 2
 max_value = 20.0
 value = 20.0
 
-[node name="ResetScore" type="CheckBox" parent="."]
+[node name="PointerControlsLabel" type="Label" parent="." unique_id=1833273088]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -40.0
+offset_right = -6.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+text = "Pointer Controls"
+horizontal_alignment = 2
+
+[node name="PointerControlsCheck" type="CheckButton" parent="." unique_id=664263311]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -48.0
+offset_right = 44.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+text = "
+"
+
+[node name="ResetScore" type="CheckBox" parent="." unique_id=1558860662]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -166,10 +165,43 @@ theme_override_fonts/font = ExtResource("2_666cw")
 theme_override_font_sizes/font_size = 12
 text = "Reset High Scores on apply"
 
+[node name="ApplyButton" type="Button" parent="." unique_id=1416289882]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = 88.0
+offset_right = -8.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+theme_override_font_sizes/font_size = 20
+text = "APPLY"
+
+[node name="BackButton" type="Button" parent="." unique_id=8900101]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 176.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_666cw")
+theme_override_font_sizes/font_size = 20
+text = "BACK"
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="ApplyButton" to="." method="_on_apply_button_pressed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="toggled" from="FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
 [connection signal="value_changed" from="SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="toggled" from="PointerControlsCheck" to="." method="_on_pointer_controls_check_toggled"]
 [connection signal="toggled" from="ResetScore" to="." method="_on_reset_score_toggled"]
+[connection signal="pressed" from="ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -3,12 +3,14 @@ signal back
 signal resetScores
 signal setMusicVolume(volume)
 signal setSoundVolume(volume)
+signal setControllerMode(is_pointer)
 
 
 var default_settings = {
 	"fullscreen": false,
 	"music_volume": 18,
-	"sound_volume": 18
+	"sound_volume": 18,
+	"pointer_controls": true
 }
 
 var reset_scores = false
@@ -26,12 +28,17 @@ func _ready() -> void:
 		
 	setSoundVolume.emit(settings_obj.sound_volume)
 	setMusicVolume.emit(settings_obj.music_volume)
+	
+	setControllerMode.emit(settings_obj.pointer_controls)
 
 func _on_visibility_changed() -> void:
 	if visible == true:
+		settings_obj = get_settings()
+		
 		$FullscreenCheck.button_pressed = settings_obj.fullscreen
 		$SFXSlider.value = settings_obj.sound_volume
 		$MusicSlider.value = settings_obj.music_volume
+		$PointerControlsCheck.button_pressed = settings_obj.pointer_controls
 		
 		$ResetScore.button_pressed = false
 
@@ -65,6 +72,8 @@ func save_settings():
 	setSoundVolume.emit(settings_obj.sound_volume)
 	setMusicVolume.emit(settings_obj.music_volume)
 	
+	setControllerMode.emit(settings_obj.pointer_controls)
+	
 	if reset_scores:
 		resetScores.emit()
 
@@ -95,3 +104,7 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	settings_obj.sound_volume = value
+
+
+func _on_pointer_controls_check_toggled(toggled_on: bool) -> void:
+	settings_obj.pointer_controls = toggled_on

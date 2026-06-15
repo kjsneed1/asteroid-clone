@@ -29,7 +29,7 @@ func move_input() -> bool:
 	return Input.is_action_pressed("move") || Input.is_action_pressed("controller_move")
 	
 func set_input_type() -> void:
-	if Input.is_action_pressed("controller_down") || Input.is_action_pressed("controller_up") || Input.is_action_pressed("controller_left") || Input.is_action_pressed("controller_right") || Input.is_action_pressed("controller_stick_down") || Input.is_action_pressed("controller_stick_up") || Input.is_action_pressed("controller_stick_left") || Input.is_action_pressed("controller_stick_right") || Input.is_action_pressed("controller_move") || Input.is_action_pressed("controller_stick_shoot"):
+	if Input.is_action_pressed("controller_down") || Input.is_action_pressed("controller_up") || Input.is_action_pressed("controller_left") || Input.is_action_pressed("controller_right") || Input.is_action_pressed("controller_stick_down") || Input.is_action_pressed("controller_stick_up") || Input.is_action_pressed("controller_stick_left") || Input.is_action_pressed("controller_stick_right") || Input.is_action_pressed("controller_move") || Input.is_action_pressed("controller_shoot"):
 		controller = true
 	elif Input.is_action_pressed("turn_left") || Input.is_action_pressed("turn_right") || Input.is_action_pressed("move") || Input.is_action_pressed("brake") || Input.is_action_pressed("shoot"):
 		controller = false

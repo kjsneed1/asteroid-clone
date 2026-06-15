@@ -250,3 +250,7 @@ func _on_options_screen_set_music_volume(volume: Variant) -> void:
 		AudioServer.set_bus_mute(2, true)
 	else:
 		AudioServer.set_bus_mute(2, false)
+
+
+func _on_options_screen_set_controller_mode(is_pointer: Variant) -> void:
+	$Player.point_mode = is_pointer

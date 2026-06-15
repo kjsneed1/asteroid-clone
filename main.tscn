@@ -136,5 +136,6 @@ polygon = PackedVector2Array(0, 0, 1280, 0, 1280, 720, 0, 720)
 [connection signal="high_score_submit" from="HighScores" to="." method="_on_high_scores_high_score_submit"]
 [connection signal="back" from="OptionsScreen" to="." method="_on_options_screen_back"]
 [connection signal="resetScores" from="OptionsScreen" to="." method="_on_options_screen_reset_scores"]
+[connection signal="setControllerMode" from="OptionsScreen" to="." method="_on_options_screen_set_controller_mode"]
 [connection signal="setMusicVolume" from="OptionsScreen" to="." method="_on_options_screen_set_music_volume"]
 [connection signal="setSoundVolume" from="OptionsScreen" to="." method="_on_options_screen_set_sound_volume"]
